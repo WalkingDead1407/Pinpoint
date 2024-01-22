@@ -5,7 +5,7 @@
         #map {
             position: relative;
             width: 100%;
-            padding-bottom: 45.8%; /* 610 / 1340 */
+            padding-bottom: 56.25%; /* This value will be replaced by JavaScript */
         }
         #image-overlay {
             position: absolute;
@@ -16,6 +16,17 @@
             opacity: 0.9;
         }
     </style>
+    <script>
+        window.onload = function() {
+            var mapElement = document.getElementById('map');
+            var aspectRatio = 1340 / 610;
+            var viewportWidth = mapElement.clientWidth;
+            var viewportHeight = viewportWidth / aspectRatio;
+
+            mapElement.style.height = viewportHeight + 'px';
+            mapElement.style.paddingBottom = '0px';
+        };
+    </script>
 </head>
 <body>
     <center>
